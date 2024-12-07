@@ -42,6 +42,10 @@ app.get("/shipping-cost",(req,res)=> {
   res.send((weight*distance*0.1).toString())
 });
 
+app.get("/loyalty-points",(req,res)=>{
+  res.send((parseFloat(req.query.purchaseAmount)*loyaltyRate).toString())
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
