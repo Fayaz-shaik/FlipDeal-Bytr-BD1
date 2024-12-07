@@ -36,6 +36,12 @@ app.get("/estimate-delivery",(req,res)=> {
   res.send(((shippingMethod=='Standard')?((distance/50).toString()):((distance/100).toString())).toString())
 });
 
+app.get("/shipping-cost",(req,res)=> {
+  let weight =  parseFloat(req.query.weight);
+  let distance = parseFloat(req.query.distance);
+  res.send((weight*distance*0.1).toString())
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
