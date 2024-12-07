@@ -30,6 +30,12 @@ app.get("/calculate-tax",(req,res)=>{
   res.send((parseFloat(req.query.cartTotal)*taxRate/100).toString())
 });
 
+app.get("/estimate-delivery",(req,res)=> {
+  let distance = parseFloat(req.query.distance)
+  let shippingMethod = req.query.shippingMethod
+  res.send(((shippingMethod=='Standard')?((distance/50).toString()):((distance/100).toString())).toString())
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
