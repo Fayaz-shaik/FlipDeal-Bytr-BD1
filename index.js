@@ -26,7 +26,7 @@ app.get("/membership-discount",(req,res)=>{
   res.send(((req.query.isMember)?(cartTotal*(100-discountPercentage)/100):(cartTotal)).toString())
 });
 
-app.get("calculate-tax",(req,res)=>{
+app.get("/calculate-tax",(req,res)=>{
   res.send((parseFloat(req.query.cartTotal)*taxRate/100).toString())
 });
 
